@@ -10,11 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.CharArrayWriter;
+
 public class MainActivity extends AppCompatActivity {
 
 
     EditText name,number;
-    Button insert,view;
+    Button insert,view,delete;
     DBhelper DB;
 
     @Override
@@ -61,7 +63,9 @@ public class MainActivity extends AppCompatActivity {
                 while (res.moveToNext()){
                     buffer.append("Name: "+res.getString(0)+"\n");
                     buffer.append("Contact: "+res.getString(1)+"\n\n");
+
                 }
+
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setCancelable(true);
@@ -70,5 +74,6 @@ public class MainActivity extends AppCompatActivity {
                 builder.show();
             }
         });
+
     }
 }
